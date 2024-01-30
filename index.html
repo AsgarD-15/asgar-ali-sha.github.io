@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+    .gradient-border {
+        --border-width: 3px;
+
+        position: relative;
+        display: flex;
+        width: 300px;
+        height: 50px;
+        font-size: 1.0rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: black;
+        background: #fff;
+        border-radius: var(--border-width);
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: calc(-1 * var(--border-width));
+            left: calc(-1 * var(--border-width));
+            z-index: -1;
+            width: calc(100% + var(--border-width) * 2);
+            height: calc(100% + var(--border-width) * 2);
+            background: linear-gradient(60deg,
+                    hsl(224, 85%, 66%),
+                    hsl(269, 85%, 66%),
+                    hsl(314, 85%, 66%),
+                    hsl(359, 85%, 66%),
+                    hsl(44, 85%, 66%),
+                    hsl(89, 85%, 66%),
+                    hsl(134, 85%, 66%),
+                    hsl(179, 85%, 66%));
+            background-size: 300% 300%;
+            background-position: 0 50%;
+            border-radius: calc(2 * var(--border-width));
+            animation: moveGradient 4s alternate infinite;
+        }
+    }
+
+    @keyframes moveGradient {
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+    body {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        overflow-x: hidden;
+        animation: moveGradient 25s infinite linear;background: linear-gradient(60deg,
+                    hsl(0, 0%, 100%),
+                    hsl(273, 13%, 84%),
+                    hsl(315, 2%, 67%),
+                    hsl(0, 3%, 30%),
+                    hsl(43, 8%, 58%),
+                    hsl(89, 14%, 66%),
+                    hsl(133, 13%, 59%),
+                    hsl(180, 12%, 67%));
+            background-size: 300% 300%;
+            background-position: 0 50%;
+
+    }
+    #navbar {
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    #navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
+        cursor: pointer;
+    }
+
+    .section {
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .section-heading {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: stretch;
+        /* justify-content:space-evenly; */
+        align-items: center;
+        /* flex-direction: row;
+        flex-direction: row; */
+    }
+
+    .half {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        /* Center text horizontally */
+        line-height: 1.7;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+    }
+    #home {
+        display: flex;
+    }
+
+    #home .half:nth-child(1) {
+        animation-name: slideFromLeft;
+    }
+
+    #home .half:nth-child(2) {
+        animation-name: slideFromRight;
+    }
+
+    @keyframes slideFromLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideFromRight {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    #about {
+        background-color: #fff;
+        /* animation: moveGradient 15s infinite linear;background: linear-gradient(60deg,
+                    hsl(0, 0%, 100%),
+                    hsl(273, 13%, 84%),
+                    hsl(315, 2%, 67%),
+                    hsl(133, 13%, 59%),
+                    hsl(180, 12%, 67%));
+            background-size: 300% 300%;
+            background-position: 0 50%; */
+    }
+
+    #portfolio {
+      background-color: #fff;
+    }
+
+    /* #contact {
+        background-color: #dedede;
+    } */
+
+    .logo-icon {
+        cursor: pointer;
+        border-radius: 50px;
+        box-shadow: 8px 8px 16px rgba(255, 255, 255, 0.4);
+    }
+    .logo-icon:hover{
+        cursor: pointer;
+        box-shadow: 8px 8px 16px rgba(255, 255, 255, 0.4);
+        border-radius: 20px;
+    }
+
+    #goToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
+        background-color: black;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+    }
+
+    #welcome {
+        transform-origin: 0;
+        opacity: 1;
+        transition: all .2s linear;
+        transform: scaleX(1);
+    }
+
+    .skill-button {
+        background-color: #fff;
+        padding: 10px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+    .skill-button:hover {
+        font-weight: 700;
+        background-color: black;
+        color: white;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
+        /* animation: moveGradient 15s infinite linear;background: linear-gradient(60deg,
+                    hsl(0, 0%, 100%),
+                    hsl(273, 13%, 84%),
+                    hsl(315, 2%, 67%),
+                    hsl(133, 13%, 59%),
+                    hsl(180, 12%, 67%)); */
+    }
+
+    .skill-tile {
+        background-color: #d4d4d4;
+        padding: 7px;
+        font-weight: 600;
+        font-size: small;
+        cursor: pointer;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border-radius: 30px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    .skill-tile:hover {
+        font-weight: 700;
+        background-color: black;
+        color: white;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    /* ... (your existing styles) ... */
+    .slider-container {
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        position: relative;
+    }
+
+    .slider-container::-webkit-scrollbar {
+        width: 10px !important;
+        /* Set the width of the scrollbar */
+    }
+
+    .slider-container::-webkit-scrollbar-thumb {
+        background-color: #ffffff;
+        /* Set the color of the scrollbar thumb */
+        border-radius: 6px;
+        /* Set the border radius of the thumb */
+    }
+
+    .slider-container::-webkit-scrollbar-track {
+        background-color: #ffffff;
+        /* Set the color of the scrollbar track */
+    }
+
+    .project-card {
+        flex: 0 0 calc(30% - 20px);
+        /* Two cards in a row with a small margin between them */
+        margin: 10px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        opacity: 70%;
+    }
+
+    .project-card img {
+        width: 100%;
+        height: 150px;
+        /* Set a fixed height for the images */
+        object-fit: cover;
+        /* Maintain aspect ratio */
+        border-radius: 8px;
+        /* Apply border radius to images */
+    }
+
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+
+    .slider-controls {
+        position: absolute;
+        /* margin: 10px; */
+        /* top: 50%; */
+        /* transform: translateY(-50%); */
+        width: 100%;
+
+        text-align: left;
+    }
+
+    .slider-controls button {
+        background-color: #9c9c9ccf;
+        color: white;
+        border: none;
+        /* padding: 5px 10px; */
+        margin: -25px 37px 0px 30px;
+        cursor: pointer;
+    }
+
+    .project-explanations {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .project-explanation {
+        max-width: 300px;
+        text-align: left;
+        display: none;
+    }
+    .project-card.active  a {
+        color: #fff !important;
+    }
+    .project-card.active {
+        background-color: #000 !important;
+        color: #fff !important;
+        opacity: 100%;
+        /* width:70%; */
+        --g: 4px;
+        /* the gap */
+        --b: 10px;
+        /* border thickness*/
+        --c: #8a8a8a;
+        /* the color */
+        padding: calc(var(--g) + var(--b));
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+        background:
+            var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+            var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+        background-size: 200% var(--b), var(--b) 200%;
+        cursor: pointer;
+        /* filter: grayscale(50%); */
+        transition: .3s;
+        box-shadow: 8px 8px 16px rgba(0.5, 0.5, 0.5, 0.5);
+        border: 1px solid #8a8a8a;
+        /* Add border or any other styling to highlight the active project */
+    }
+
+    .project-card.active:hover {
+        --_p: 75%;
+        filter: grayscale(0%);
+    }
+
+    .project-card:hover {
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    #navbar a.active {
+        color: #000;
+        background-color: #fff;
+        padding: 7px;
+        font-weight: 700;
+        border-radius: 20px;
+        /* add any other styles for the active link */
+    }
+
+    .main-footer__social-cont {
+        display: flex;
+        justify-content: space-around;
+        /* Adjust as needed */
+    }
+
+    .main-footer__icon {
+        width: 36px;
+        /* Set a fixed width for all icons */
+        height: 32px;
+        /* Set a fixed height for all icons */
+        object-fit: cover;
+        /* Maintain aspect ratio while covering the specified size */
+    }
+    .main-exp__icon {
+        width: 16px;
+        /* Set a fixed width for all icons */
+        height: 16px;
+        margin-top: 15px;
+        /* Set a fixed height for all icons */
+        object-fit: cover;
+        /* Maintain aspect ratio while covering the specified size */
+    }
+
+    .contact-container {
+        display: flex;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        position: relative;
+    }
+
+    .contact-card {
+        width: 200px;
+        height: 135px;
+        margin: 0 10px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        background-color: black;
+        padding: 20px;
+        border: 1px solid #545454;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+        /* Dark shadow on the right and bottom */
+        border-radius: 8px;
+        /* opacity: 70%; */
+    }
+
+    .contact-card:hover {
+        width: 220px;
+        height: 150px;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    /* model */
+    .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 1100px; /* Set your desired width */
+    max-height: 80vh;
+    height: 65vh;
+    overflow-y: auto;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 40px;
+        cursor: pointer;
+    }
+    .url-rem{
+        text-decoration: none !important;
+        color: #000;
+    }
+
+    /* ... (your existing styles) ... */
+    .experience-tab {
+      z-index: 2;
+      width: 90% !important;
+      background-color: #02003e;
+      color: #fff;
+      padding: 5px 15px 5px 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+      animation: moveGradient 15s infinite linear;background: linear-gradient(60deg,
+                hsl(0, 0%, 39%),
+                hsl(0, 0%, 12%));
+            background-size: 300% 300%;
+            background-position: 0 50%;
+    }
+
+    .experience-tab h5 {
+      margin: 0;
+      font-weight: 600 !important;
+    }
+
+    .experience-content {
+      width: 90% !important;
+      border-radius: 10px;
+      margin-top: -15px;
+      background-color: #c7c3c3;
+      display: none;
+      padding: 15px;
+      border-top: 1px solid #333;
+      /* transition: max-height 0.8s; */
+      overflow: hidden;
+      transition: all cubic-bezier(.4,0,.2,1) .4s;
+    animation: moveGradient 15s infinite linear;background: linear-gradient(60deg,
+                hsl(0, 1%, 54%),
+                hsl(0, 0%, 71%),
+                hsl(0, 0%, 82%),
+                hsl(0, 0%, 62%),
+                hsl(270, 2%, 79%));
+            background-size: 300% 300%;
+            background-position: 0 50%;
+    }
+
+    .experience-content img {
+      max-width: 100%;
+      border-radius: 30px;
+      height: auto;
+      margin-top: 15px;
+      margin-right: 20px;
+    }
+
+    .toggle-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
+    .content-columns {
+        display: flex;
+    }
+
+    .column-80 {
+        flex: 0 0 80%;
+        padding-right: 20px; /* Adjust as needed */
+    }
+
+    .column-20 {
+        flex: 0 0 20%;
+    }
+    /* Additional styles for h4 and img */
+
+    .experience-content img.main-exp__icon {
+        margin-right: 5px; /* Adjust as needed */
+    }
+    .location-content{
+        font-size: 13px; font-family: 'Courier New', Courier, monospace;    margin-left: -27px;
+    }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="navbar">
+        <div></div>
+        <div>
+            <img src="C:\Users\HP\Pictures\Saved Pictures\Asgar.jpg" class="logo-icon" alt="Logo" height="60">
+        </div>
+        <!-- <div style="font-size:larger"><b>ASGAR ALI SHA</b></div> -->
+        <div>
+            <a href="#home" class="home active">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div></div>
+    </div>
+
+    <div id="home" class="section">
+        <div class="half">
+            <div>
+                <div id="welcome"> <svg id="welcome_svg" xmlns="http://www.w3.org/2000/svg" width="605.44"
+                        height="122.24" viewBox="0 0 1892 382" data-inlinesvg=".inlineSvgFile-7">
+                        <path id="welcome_path"
+                            style="stroke-dasharray: 9541.93, 9541.93; stroke-dashoffset: 7156; transition: fill 1s ease-in-out 0s; stroke: rgb(204, 204, 204); fill: rgb(204, 204, 204);"
+                            stroke="none" stroke-miterlimit="10" stroke-width="2"
+                            d="M673 52h13v286h-13V52ZM21 68h15l11.67 35 25.66 76 31.33 92L121 319c1.18-7.67 5.08-16.57 7.66-24l14.65-42 44.36-127 15.75-45c3.77-10.08 3.22-12.74 9.6-12.98 10.02-.39 8.61 1.39 13.32 14.98l15.33 44 40.99 117L309 319c1.13-7.32 8.11-26.23 10.95-34l14-41 10.74-32 29.98-87 14.66-43c4.29-12.86 3.55-13.88 10.67-14h8l-13.69 40-38.65 113-27.33 80L316 338h-7c-8.14-.05-7.4-.24-12.33-15l-15.34-44-39.99-114L214 87c-1.18 7.63-4.52 14.73-7 22l-15 43-30.31 87-15.27 44-12.75 37c-1.05 3.14-4.63 14.5-6.51 16.4-1.95 1.98-9.36 2.07-11.94 1.31-3.99-1.18-6.58-12.8-7.89-16.71l-16.66-49L21 68Zm570 230c2.38 2.41 7.16 6.17 5.83 10-.99 2.86-6.43 7.08-8.83 9.13-8.01 6.86-18.98 13.19-29 16.54-31.99 10.67-70.69 6.18-98-14.15-17.58-13.08-30.45-33.18-35.5-54.52-3.02-12.77-2.65-24.03-2.5-37 .31-26.02 14.43-53.95 34-70.7 29.18-24.98 77.82-27.22 110-6.76 15.48 9.85 25.23 22.2 33.24 38.46 8.78 17.81 9.76 31.68 9.76 51H457l-22 1 3.5 22c2.11 8.93 6.03 17.29 10.94 25 22.1 34.72 69.57 48.39 107.56 33.54 20.65-8.08 22.5-15.31 34-23.54Zm320-1c12.51 5.34 10.73 10.47 1.91 18.57-8.18 7.52-16.65 12.67-26.91 16.83-27.39 11.09-63.18 8.47-89-5.71-56.7-31.15-64.76-116.41-20.96-161.69 16.95-17.52 41.58-27.96 65.96-28h13c17.15.2 38.68 7.29 52 18.09 3.48 2.82 13.82 11.03 13.1 15.87-.31 2.1-2.54 3.96-4.12 5.19-1.79 1.39-2.96 1.94-4.98 2.85-16.12-22.52-41.49-30.31-68-30-13.46.16-31.78 6.35-43 13.7-48.27 31.58-51.35 106.37-9 144.13 32.26 28.76 94.69 27.83 120-9.83Zm130-159.58c31.95-3.9 65.11 6.25 86.83 30.58 14.22 15.93 24.14 40.56 24.17 62v17c-.32 26.84-16.35 57.76-38 73.41-21.5 15.54-41.23 18.89-67 18.59-7.87-.1-18.5-2.52-26-5-31.73-10.49-54.2-35.62-62.1-68-3.13-12.81-3.05-22.06-2.9-35 .18-14.98 5.27-32.93 12.51-46 12.61-22.75 33.41-38.61 58.49-45.25l14-2.33ZM1229 184c2.81-11.94 13.43-23.44 23-30.63 20.75-15.58 38.22-16.66 63-16.37 10.93.13 25.57 4.26 35 9.75 11.55 6.71 21.12 16.99 26.56 29.25l5.44 14c3.84-16.33 17.18-31.14 31-39.95 20.33-12.95 36.95-13.32 60-13.05 21.62.26 42.69 11.59 55.22 29 14.93 20.75 13.78 43.98 13.78 68v104h-13V215c-.03-18.87-8.14-40.46-23-52.53-21.85-17.76-59.06-17.22-83-3.96-7.55 4.19-14.03 9.9-19.56 16.49-19.32 23.02-18.44 47.97-18.44 76v87h-13V221c-.03-17.84-4.92-39.43-17.32-52.83-19.51-21.09-55.03-24.08-80.68-13.72-11.39 4.6-21.2 12.02-28.91 21.55-18.09 22.38-17.09 46.16-17.09 73v89h-13V138h13v29l1 17Zm542 114c2.39 2.42 7.16 6.17 5.83 10-.91 2.65-6.56 7.66-8.83 9.56-8.97 7.53-18.99 12.76-30 16.58-30.89 10.72-70.81 4.63-97-14.9-48.89-36.45-51.28-121.31-5-160.94 14.53-12.44 35.76-21.21 55-21.3h13c8.96.11 17.63 2.32 26 5.31 23.27 8.31 40.35 24.18 50.69 46.69 7.74 16.84 10.31 32.6 10.31 51h-175c.03 34.99 20.14 67.24 53 80.55 13.99 5.67 25.24 6.47 40 6.45 15.51-.02 33.42-5.67 46-14.78l16-14.22Zm7-69c-.24-26.58-16.1-55.62-39-69.24-24.94-14.85-59.06-14.85-84 0-18.23 10.85-30.98 29.82-36.11 50.24l-2.89 19h162Zm-1180 0c-2.27-28.02-15.25-54.79-40-69.55-29.57-17.64-72.11-13.53-96.96 10.64-15.37 14.94-24.57 37.54-25.04 58.91h162Zm445-79.7c-32.04 5.95-54.87 20.41-67.55 51.7-4.06 10.03-6.4 24.18-6.45 35-.18 39.89 18.04 74.6 58 86.98 5.76 1.78 15.05 3.95 21 4.02 18.01.21 32.87-1.63 49-10.51 49.02-27.01 55.84-102.96 18.71-142.4-18.76-19.93-46.02-27.44-72.71-24.79Zm799 165.55c4.74-1.3 9.69-1.39 13.67 1.95 7.18 6.01 5.14 18.08-3.67 21.46-14.63 5.61-25.63-14.82-10-23.41Z">
+                        </path>
+                    </svg> </div>
+            </div>
+        </div>
+        <div class="half">
+            <div class="section-heading gradient-border">
+                <p>HEY, I'M ASGAR ALI SHA</p><br>
+            </div>
+                <h5>software Engineer | Full-Stack Developer</h5>
+            <p>Experienced Full-Stack Developer with a demonstrated history of working in the Information technology and
+                services Industry. Scaling new heights of success with hard work and dedication and leaving a mark of
+                excellence on every step, targeting given assignments with an organization of high repute. </p>
+            <!-- Additional content goes here -->
+        </div>
+    </div>
+
+    <div id="about" class="section">
+        <div class="half">
+            <h3 style="margin-top: 17%;">Get to know me!</h3>
+            <!-- <p>Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p> -->
+            <p style="font-size: 13px !important;">I'm a Fullstack Developer building the Front-end and Back-end of Web Applications that leads to the
+                success of the overall product. Check out some of my work in the <a href="#portfolio"
+                    style="color:black;font-weight:700">Projects</a> section.</p>
+            <h3>Professional Experience</h3 >
+
+            <div class="experience-tab" onclick="toggleExperience()">
+                <h5>Software Developer @ Codentrix Technologies Pvt Ltd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>2021 - Present</span></h5>
+                <div class="toggle-icon" id="toggleIcon">+</div>
+            </div>
+            
+            <div class="experience-content" id="experienceContent" style="display: flex;">
+                <div class="content-columns">
+                    <div class="column-80">
+                        <div class="location-content" >
+                            <img class="main-exp__icon"
+                                src="C:\Users\HP\Pictures\Saved Pictures\location.png"
+                                alt="location">chennai, TamilNadu
+                            <a target="_blank" rel="noreferrer" class="url-rem" href="https://www.codentrixtechnologies.com/">
+                                <img class="main-exp__icon"
+                                    src="C:\Users\HP\Pictures\Saved Pictures\website.png"
+                                    alt="Asgar Ali Sha Linkedin Profile">codentrixtechnologies.com
+                            </a>
+                        </div>
+                        <p style="font-size: 13px !important;align-items: left !important;">
+                            Designing, implementing, and Developing software solutions using the latest Python technologies such as Django, REST framework and React.js.
+                        </p>
+                        <div class="skills">
+                            <div class="skill-tile">DJANGO</div>
+                            <div class="skill-tile">React</div>
+                            <div class="skill-tile">Javascript</div>
+                            <div class="skill-tile">HTML & CSS</div>
+                            <div class="skill-tile">MySql</div>
+                        </div>
+                    </div>
+                    <div class="column-20">
+                        <img src="C:\Users\HP\Pictures\Saved Pictures\codentrix_logo.jpg" alt="Company Logo" width="100" height="200px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="half">
+            <h2 style="margin-top:20% !important">My Skills</h2>
+            <p>Front-end Technologies</p>
+            <div class="skills">
+                <div class="skill-button">JAVASCRIPT</div>
+                <div class="skill-button">REACT</div>
+                <div class="skill-button">HTML</div>
+                <div class="skill-button">CSS</div>
+                <div class="skill-button">BOOTSTRAP</div>
+                <div class="skill-button">JQUERY</div>
+            </div>
+            <p>Back-end Technologies & Databases</p>
+            <div class="skills">
+                <div class="skill-button">DJANGO </div>
+                <div class="skill-button">LARAVEL </div>
+                <div class="skill-button">PYTHON</div>
+                <div class="skill-button">PHP</div>
+                <div class="skill-button">MYSQL</div>
+                <div class="skill-button">SQL</div>
+            </div>
+            <p>IDE Tools</p>
+            <div class="skills">
+                <div class="skill-button">VISUAL STUDIO</div>
+                <div class="skill-button">XAMPP</div>
+                <div class="skill-button">POSTMAN</div>
+                <div class="skill-button">GITHUB</div>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio">
+        <div class="half">
+            <h2 style="margin-top:8% !important">Projects</h2>
+            <p style="margin:0">Here you will find some of the personal and client's projects that I created with each
+                project containing
+                its own case study</p>
+        </div>
+        <div class="half">
+            <div class="slider-container" id="projectSlider">
+                <!-- Card 1 -->
+                <div class="project-card" onclick="showProjectDetails(0)">
+                    <img src="C:\Users\HP\Pictures\Saved Pictures\pharmtracqr.png" width="20px" height="150px"
+                        alt="Project 1">
+                        <h3>PharmTracQr</h3>
+                        <h5>Web Applications</h5>
+                    <a href="https://www.codentrixtechnologies.com/qr-code-for-Pharma-api-manufacturers" target="_blank"  class="url-rem" class="url-rem"
+                        rel="noopener noreferrer">
+                        <p >Lead the development of... <b><u>Learn More</u></b></p>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div class="project-card" onclick="showProjectDetails(1)">
+                    <img src="C:\Users\HP\Pictures\Saved Pictures\tracerbee.png" width="200px" height="150px"
+                        alt="Project 2">
+                        <h3>TracerBee</h3>
+                        <h5>Web Applications</h5>
+                        <a href="https://www.codentrixtechnologies.com/traceability-software-and-services" target="_blank"  class="url-rem"
+                        rel="noopener noreferrer">
+                        <p>Developed TracerBee, a com... <b><u>Learn More</u></b></p>
+                    </a>
+                </div>
+                <!-- Card 3 -->
+                <div class="project-card" onclick="showProjectDetails(2)">
+                    <img src="C:\Users\HP\Pictures\Saved Pictures\Emerson.png" width="200px" height="150px"
+                        alt="Project 3">
+                        <h3>Item Generation App</h3>
+                        <h5>Web Applications</h5>
+                        <a href="https://www.emerson.com/en-in" target="_blank"  class="url-rem" rel="noopener noreferrer">
+                        <p>The ‘Item Generation App’... <b><u>Learn More</u></b></p>
+                    </a>
+                </div>
+                <!-- Card 4 -->
+                <div class="project-card" onclick="showProjectDetails(3)">
+                    <img src="C:\Users\HP\Pictures\Saved Pictures\Emerson.png" width="200px" height="150px"
+                        alt="Project 4">
+                        <h3>Supplier Portal </h3>
+                        <h5>Web Applications</h5>
+                        <a href="https://www.emerson.com/en-in" target="_blank"  class="url-rem" rel="noopener noreferrer">
+                    </a>
+                    <p> Emerson Process Managem... <b><u>Learn More</u></b></p>
+                </div>
+                <!-- Card 5 -->
+                <div class="project-card" onclick="showProjectDetails(4)">
+                    <img src="C:\Users\HP\Pictures\Saved Pictures\Emerson.png" width="200px" height="150px"
+                        alt="Project 5">
+                        <h3>Inventory Management</h3>
+                        <h5>Web Applications</h5>
+                        <a href="https://www.emerson.com/en-in" target="_blank"  class="url-rem" rel="noopener noreferrer">
+                    </a>
+                    <p>This Project is to calcul... <b><u>Learn More</u></b></p>
+                </div>
+            </div> <br> <!-- Slider of Cards with Image and Project Name -->
+            <div class="slider-controls">
+                <button class="prev" onclick="showPrevProjects()">&#10094;</button>
+                <button class="next" onclick="showNextProjects()">&#10095;</button>
+            </div>
+        </div>
+        <!-- <div class="half">
+            <div class="project-explanations">
+                <div class="project-explanation" id="project1Explanation">
+                    <h3>PharmTracQr</h3>
+                </div>
+                <div class="project-explanation" id="project2Explanation">
+                    <h3>TracerBee</h3>
+                </div>
+                <div class="project-explanation" id="project3Explanation">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3...</p>
+                </div>
+                <div class="project-explanation" id="project4Explanation">
+                    <h3>Project 4</h3>
+                    <p>Description of Project 4...</p>
+                </div>
+                <div class="project-explanation" id="project5Explanation">
+                    <h3>Project 5</h3>
+                    <p>Description of Project 5...</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <div id="contact">
+        <div class="half">
+            <h2 style="margin-top:8% !important">Contact Me..</h2>
+            <p>I'm open to Freelancing and Job opportunities where I can contribute, learn and grow. If you have a good opportunity that
+                matches my skills and experience then don't hesitate to Contact me.</p>
+        </div>
+        <div class="half">
+            <div class="contact-container" id="">
+                <!-- Card 1 -->
+                <div class="contact-card">
+                    <h3 style="color: white;">
+                        <span>CV</span>
+                    </h3>
+                    <div class="main-footer__social-cont">
+                        <p  style="color: #fff;margin-top: 2px;">Download my CV :</p>
+                        <a target="_blank" rel="noreferrer" href="Z:\ASGAR\AsgarAliSha-CV.pdf">
+                            <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\pdf.png"
+                                alt="Asgar Ali Sha CV">
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="main-footer__row main-footer__row-1">
+                        <h3 style="color: white;">
+                            <span>Social</span>
+                        </h3>
+                        <div class="main-footer__social-cont">
+                            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/asgar-ali-sha-d-6925691ab/">
+                                <img class="main-footer__icon"
+                                    src="C:\Users\HP\Pictures\Saved Pictures\linkedin-ico.png"
+                                    alt="Asgar Ali Sha Linkedin Profile">
+                            </a>
+                            <a target="_blank" rel="noreferrer" href="https://github.com/AsgarD-15">
+                                <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\github.png"
+                                    alt="Asgar Github Profile">
+                            </a>
+                            <a target="_blank" rel="noreferrer"  href="https://www.facebook.com/people/Asgar-Sha-Asgar/pfbid02djmJdHvu5GoNeaBV5HnR2fwgQUd1UErG8HtADEWf642exFNSSfCaWnGd9gTBWyfkl/?mibextid=ZbWKwL">
+                                <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\facebook.png"
+                                    alt="Asgar Twitter Profile">
+                            </a>
+                            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/_asgar_d_/?igsh=dW5kb2szdXl2aDZ0">
+                                <img height="40px" class="main-footer__icon"
+                                    src="C:\Users\HP\Pictures\Saved Pictures\instagram.png" alt="Asgar Twitter Profile">
+                            </a>
+                            <!-- <a target="_blank" rel="noreferrer" href="">
+                              <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\twitter-ico.png" alt="Asgar Twitter Profile">
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="contact-card">
+                    <div class="main-footer__row main-footer__row-1">
+                        <h3 style="color: white;">
+                            <span>Contact details</span>
+                        </h3>
+                        <div class="main-footer__social-cont">
+                            <a target="_blank" rel="noreferrer" href="mailto:asgaralisha98d@gamil.com">
+                                <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\email.png"
+                                    alt="Asgar Ali Sha Linkedin Profile">
+                            </a>
+                            <a target="_blank" rel="noreferrer" href="tel:+91 7339661311">
+                                <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\phone.png"
+                                    alt="Asgar Github Profile">
+                            </a>
+                            <a target="_blank" rel="noreferrer" href="https://www.google.com/maps/place/Tambaram,+Chennai,+Tamil+Nadu/@12.9220871,80.0717556,13z/data=!3m1!4b1!4m6!3m5!1s0x3a525f14844aad0f:0xe16d3a66c4ce38d4!8m2!3d12.9249308!4d80.1000026!16zL20vMDVnYzM5?entry=ttu">
+                                <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\location.png"
+                                    alt="Asgar Twitter Profile">
+                            </a>
+                            <!-- <a target="_blank" rel="noreferrer" href="">
+                              <img class="main-footer__icon" src="C:\Users\HP\Pictures\Saved Pictures\twitter-ico.png" alt="Asgar Twitter Profile">
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+        <hr width="90%" color="#c8c3c3">
+        <div class="half" style="line-height: 0;padding: 2px;">
+            <p>© Copyright 2024. Made by Asgar Ali Sha</p>
+        </div>
+    </div>
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeProjectModal()">&times;</span>
+          <div id="projectDetails"></div>
+        </div>
+      </div>
+    <div id="goToTop">&#8686;</div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('#navbar a');
+
+        function changeActiveLink() {
+            const scrollPosition = window.scrollY;
+
+            // Iterate through each section and check if it's in the viewport
+            links.forEach(function(link) {
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (
+                    targetElement.offsetTop <= scrollPosition &&
+                    targetElement.offsetTop + targetElement.offsetHeight > scrollPosition
+                ) {
+                    // Remove the 'active' class from all links
+                    links.forEach(function(otherLink) {
+                        otherLink.classList.remove('active');
+                    });
+
+                    // Add the 'active' class to the current link
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', changeActiveLink);
+
+        // Optional: Scroll to the clicked section and update the active link
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Remove the 'active' class from all links
+                // links.forEach(function (otherLink) {
+                //     otherLink.classList.remove('active');
+                // });
+
+                // // Add the 'active' class to the clicked link
+                // link.classList.add('active');
+
+                // Scroll to the target section
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+    // Optional: Scroll to the default active section on page load
+    const defaultActiveLink = document.querySelector('#navbar .active');
+    const defaultTargetId = defaultActiveLink.getAttribute('href').substring(1);
+    const defaultTargetElement = document.getElementById(defaultTargetId);
+
+    window.scrollTo({
+        top: defaultTargetElement.offsetTop,
+        behavior: 'smooth'
+    });
+    document.getElementById('goToTop').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    let currentIndex = 1; // Start with the center project
+    const totalProjects = 5; // Total number of projects
+
+    // function showPrevProjects() {
+    //     currentIndex = (currentIndex - 2 + totalProjects) % totalProjects;
+    //     updateVisibility();
+    // }
+
+    // function showNextProjects() {
+    //     currentIndex = (currentIndex + 2) % totalProjects;
+    //     updateVisibility();
+    // }
+
+    function showProjectDetails(index) {
+        currentIndex = index;
+        updateVisibility();
+    }
+
+    function updateVisibility() {
+        const projects = document.querySelectorAll('.project-card');
+        // const explanations = document.querySelectorAll('.project-explanation');
+
+        projects.forEach((project, index) => {
+            project.classList.toggle('active', index === currentIndex);
+            project.style.display = 'block';
+        });
+
+        // explanations.forEach((explanation, index) => {
+        //     explanation.classList.toggle('active', index === currentIndex);
+        //     explanation.style.display = index === currentIndex ? 'block' : 'none';
+        // });
+    }
+
+    // Initial load
+    updateVisibility();
+    document.addEventListener('DOMContentLoaded', function() {
+        const wrapper = document.getElementById('projectSlider');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        prevButton.addEventListener('click', function() {
+            // currentIndex = (currentIndex - 1 + totalProjects) % totalProjects;
+            // updateVisibility();
+            scrollProjects(-650); // Adjust the scroll distance as needed
+        });
+
+        nextButton.addEventListener('click', function() {
+            scrollProjects(650); // Adjust the scroll distance as needed
+            // currentIndex = (currentIndex + 1) % totalProjects;
+            // updateVisibility();
+        });
+
+        function scrollProjects(distance) {
+            const currentScroll = wrapper.scrollLeft;
+            wrapper.scrollTo({
+                left: currentScroll + distance,
+                behavior: 'smooth'
+            });
+        }
+    });  
+
+
+    // model
+    function showProjectDetails(projectIndex) {
+        currentIndex = projectIndex;
+        updateVisibility();
+        var modal = document.getElementById("projectModal");
+        var projectDetailsContainer = document.getElementById("projectDetails");
+
+        // Create content for the modal based on the projectIndex
+        var projectDetails = getProjectDetails(projectIndex);
+
+        // Set the content and display the modal
+        projectDetailsContainer.innerHTML = projectDetails;
+        modal.style.display = "block";
+    }
+
+    function getProjectDetails(projectIndex) {
+        // Replace this with your actual project details logic
+        var projects = [
+            {
+                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\pharmtracqr.png',
+                title:'PharmTracQr',
+                description:'Lead the development of PharmTracQR, a leading SaaS solution for API manufacturing companies, revolutionizing pharmaceutical traceability through a secure cloud-based platform.',
+                link:'https://www.codentrixtechnologies.com/qr-code-for-Pharma-api-manufacturers',
+            },
+            {
+                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\tracerbee.png',
+                title:'TracerBee',
+                description:'Developed TracerBee, a comprehensive software product using PHP Laravel, enabling end-to-end Part Traceability. Seamlessly trace parts or items from Raw Material to Finished Goods with a single click',
+                link:'https://www.codentrixtechnologies.com/traceability-software-and-services',
+            },
+            {
+                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\emerson.png',
+                title:'Item Generation App',
+                description:'The ‘Item Generation App’ is used to create, activate and update Items in Oracle Betsy.Item Creation-Requestor will apply to create a new item in a specific organization.If the item has cost, then the status can be changed from “Phase In” to “Active”. Any ‘Make item’ should have a BOM and Routing in the Oracle Betsy.',
+                link:'https://www.emerson.com/en-in',
+            },
+            {
+                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\emerson.png',
+                title:'Supplier Portal',
+                description:'Emerson Process Management requires a Supplier Portal for suppliers to upload Quality documents and a web portal for Quality team to review and approve the documents.This allows the quality documents for incoming raw materials to be approved before receiving the raw materials from the supplier.Once the quality documents are approved they will be moved to Emerson Library. The rejected documents should be sent back to the supplier so that they can re-submit for approval.',
+                link:'https://www.emerson.com/en-in',
+            },
+            {
+                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\emerson.png',
+                title:'Inventory Management',
+                description:'This Project is to calculate the value of the inventory across Raw Materials (RM), Work in Progress (WIP) and Finished Goods (FG). For RM - the application should take Opening stock, receipts and issues within the financial year and generate final inventory valuation report. For WIP & FG – the application should explode the BOM and summarize purchase cost of all Buy items1 as well as estimating total cost of make items by calculating sub contract cost.',
+                link:'https://www.emerson.com/en-in',
+            },
+        ];
+
+        var project = projects[projectIndex];
+
+        // Build and return HTML content for the modal
+        var projectDetails = `
+        <center><img src="${project.imageSrc}" alt="${project.title}" width="50%" height="40%" "></center>
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <a href="${project.link}" target="_blank" rel="noopener noreferrer">Learn more</a>
+        `;
+
+        return projectDetails;
+    }
+    function closeProjectModal() {
+        var modal = document.getElementById("projectModal");
+        modal.style.display = "none";
+    }
+
+    function toggleExperience() {
+        var content = document.getElementById("experienceContent");
+        var icon = document.getElementById("toggleIcon");
+
+        if (content.style.display === "none") {
+        content.style.display = "flex";
+        icon.textContent = "-";
+        } else {
+        content.style.display = "none";
+        icon.textContent = "+";
+        }
+    }
+    </script>
+</body>
+
+</html>
