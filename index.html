@@ -13,6 +13,12 @@
             .section {
                 height: auto !important; 
             }
+            .section h5{
+                padding: 30px !important;
+            }
+            #welcome{
+                margin-top: 20% !important; 
+            }
             #home .section{
                 flex-direction: column !important;
             }
@@ -91,12 +97,25 @@
             animation: slideDown 1.5s ease-out;
         }
         /* Section css */
+
         .section {
             height: 120vh; /* Set the height of your sections */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+        .line-class{
+            width: 10%;height: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background: linear-gradient(60deg,
+                hsl(298, 80%, 27%),
+                hsl(282, 36%, 40%),
+                hsl(292, 40%, 37%));
+            background-size: 300% 300%;
+            background-position: 0 50%;
+            animation: moveGradient 15s infinite linear;
         }
 
         /* Home section Css */
@@ -588,7 +607,7 @@
                     <p>HEY, I'M ASGAR ALI SHA</p>
                 </div></center><br>
                 <div>
-                    <h6><b>software Engineer | Full-Stack Developer</b></h6><br>
+                    <h6><b>software Engineer | Full-Stack Developer</b></h6><hr class="line-class"><br><br>
                     <p>Experienced Full-Stack Developer with a demonstrated history of working in the Information technology and
                         services Industry. Scaling new heights of success with hard work and dedication and leaving a mark of
                         excellence on every step, targeting given assignments with an organization of high repute. </p>
@@ -599,7 +618,7 @@
     <div id="about" class="section">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-sx-6">
-                <h5><b>Get to know me!</b></h5><br>
+                <h5><b>Get to know me!</b></h5><hr class="line-class"><br>
                 <!-- <p>Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p> -->
                 <p style="font-size: 15px !important;">I'm a Fullstack Developer building the Front-end and Back-end of Web Applications that leads to the
                     success of the overall product. Check out some of my work in the <a href="#portfolio"
@@ -646,10 +665,10 @@
             </div>
             <div class="col-md-6 col-sm-6 col-sx-6">
                 <div class="container-fluid ">
-                    <h5><b>My Skills</b></h5>
+                    <h5><b>My Skills</b></h5><hr class="line-class"><br>
                     <div class="row"></div>
                     <p>Front-end Technologies</p>
-                    <div class="row main-footer__social-cont">
+                    <div class="row">
                         <div class="skill-button"><img class="main-skill__icon"
                             src="images\js.jpg"
                             alt="JavaScript"  title="JavaScript"></div>
@@ -663,9 +682,9 @@
                         <div class="skill-button"><img class="main-skill__icon"
                             src="images\css.jpg"
                             alt="CSS"  title="CSS"></div>
-                        <div class="skill-button"><img class="main-skill__icon"
+                        <!-- <div class="skill-button"><img class="main-skill__icon"
                             src="images\bootstrap.jpg"
-                            alt="Bootstrap"  title="Bootstrap"></div>
+                            alt="Bootstrap"  title="Bootstrap"></div> -->
                         <div class="skill-button"><img class="main-skill__icon"
                             src="images\jquery.jpg"
                             alt="Jquery"  title="Jquery"></div>
@@ -727,7 +746,7 @@
         </div>
     </div>
     <div id="portfolio" class="section" style="flex-direction: column;">
-        <h5><b>Projects</b></h5><br>
+        <h5><b>Projects</b></h5><hr class="line-class"">
             <p style="margin:0">Here you will find some of the personal and client's projects that I created with each
                 project containing its own case study</p>
             <br>
@@ -876,27 +895,27 @@
         </div>
     </div>
 
-<!-- Modal -->
-<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="projectModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="projectModalBody">
-                <!-- Project details will be displayed here -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!-- Additional buttons if needed -->
+    <!-- Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="projectModalBody">
+                    <!-- Project details will be displayed here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- Additional buttons if needed -->
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <div id="goToTop">&#8686;</div>
 
@@ -1047,31 +1066,31 @@
         // Replace this with your actual project details logic
         var projects = [
             {
-                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\pharmtracqr.png',
+                imageSrc:'images\\pharmtracqr.png',
                 title:'PharmTracQr',
                 description:'Lead the development of PharmTracQR, a leading SaaS solution for API manufacturing companies, revolutionizing pharmaceutical traceability through a secure cloud-based platform.',
                 link:'https://www.codentrixtechnologies.com/qr-code-for-Pharma-api-manufacturers',
             },
             {
-                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\tracerbee.png',
+                imageSrc:'images\\tracerbee.png',
                 title:'TracerBee',
                 description:'Developed TracerBee, a comprehensive software product using PHP Laravel, enabling end-to-end Part Traceability. Seamlessly trace parts or items from Raw Material to Finished Goods with a single click',
                 link:'https://www.codentrixtechnologies.com/traceability-software-and-services',
             },
             {
-                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\emerson.png',
+                imageSrc:'images\\emerson.png',
                 title:'Item Generation App',
                 description:'The ‘Item Generation App’ is used to create, activate and update Items in Oracle Betsy.Item Creation-Requestor will apply to create a new item in a specific organization.If the item has cost, then the status can be changed from “Phase In” to “Active”. Any ‘Make item’ should have a BOM and Routing in the Oracle Betsy.',
                 link:'https://www.emerson.com/en-in',
             },
             {
-                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\emerson.png',
+                imageSrc:'images\\emerson.png',
                 title:'Supplier Portal',
                 description:'Emerson Process Management requires a Supplier Portal for suppliers to upload Quality documents and a web portal for Quality team to review and approve the documents.This allows the quality documents for incoming raw materials to be approved before receiving the raw materials from the supplier.Once the quality documents are approved they will be moved to Emerson Library. The rejected documents should be sent back to the supplier so that they can re-submit for approval.',
                 link:'https://www.emerson.com/en-in',
             },
             {
-                imageSrc:'C:\\Users\\HP\\Pictures\\Saved Pictures\\emerson.png',
+                imageSrc:'images\\emerson.png',
                 title:'Inventory Management',
                 description:'This Project is to calculate the value of the inventory across Raw Materials (RM), Work in Progress (WIP) and Finished Goods (FG). For RM - the application should take Opening stock, receipts and issues within the financial year and generate final inventory valuation report. For WIP & FG – the application should explode the BOM and summarize purchase cost of all Buy items1 as well as estimating total cost of make items by calculating sub contract cost.',
                 link:'https://www.emerson.com/en-in',
