@@ -492,6 +492,22 @@
             cursor: pointer;
             /* font-size: medium; */
         }
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            30% { transform: rotate(14deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+            60% { transform: rotate(0deg); } /* Reset for better loop */
+            100% { transform: rotate(0deg); }
+        }
+
+        h4 span {
+            display: inline-block;
+            transform-origin: 70% 70%;
+            animation: wave 2s infinite;
+        }
     </style>
 </head>
 
@@ -535,7 +551,7 @@
                         <img src="images\Asgar-D.png"  class="logo-img"  alt="Logo">
                 </div>
                 <div class="col-md-8 home-content">
-                    <h4>HEY 👋 , I'M</h4>
+                    <h4>HEY <span>👋 </span>, I'M</h4>
                     <h2>Asgar Ali sha</h2>
                     <h6 style="font-size: large;margin-top: 20px;">Software Engineer | Full-Stack Developer</h6>
                     <p>Experienced Full-Stack Developer with a demonstrated history of working in the Information technology and
